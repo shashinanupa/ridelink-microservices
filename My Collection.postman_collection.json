@@ -1,0 +1,184 @@
+{
+  "info": {
+    "name": "RideLink Microservices API",
+    "description": "Requests for the RideLink Account, Driver, Ride, and Payment services.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Passenger",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice Passenger\",\n  \"email\": \"alice.passenger@example.com\",\n  \"password\": \"Password123!\",\n  \"role\": \"PASSENGER\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5001/api/accounts/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5001",
+          "path": [
+            "api",
+            "accounts",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register Driver",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Bob Driver\",\n  \"email\": \"bob.driver@example.com\",\n  \"password\": \"Password123!\",\n  \"role\": \"DRIVER\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5001/api/accounts/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5001",
+          "path": [
+            "api",
+            "accounts",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Toggle Driver Availability",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"driverId\": \"usr_2\",\n  \"isAvailable\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5002/api/drivers/availability",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5002",
+          "path": [
+            "api",
+            "drivers",
+            "availability"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Ride Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"passengerId\": \"usr_1\",\n  \"pickup\": \"Colombo Fort\",\n  \"destination\": \"Nugegoda\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5003/api/rides/request",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5003",
+          "path": [
+            "api",
+            "rides",
+            "request"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Process Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rideId\": \"ride_1\",\n  \"amount\": 900,\n  \"paymentMethod\": \"CARD\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5004/api/payments/process",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5004",
+          "path": [
+            "api",
+            "payments",
+            "process"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
